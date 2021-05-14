@@ -11,6 +11,7 @@ from .models import Dados
 def login_user(request):
     return render(request, 'login.html')
 
+@login_required(login_url='/login/')
 def edit(request):
     return render(request, 'edit.html')
 
