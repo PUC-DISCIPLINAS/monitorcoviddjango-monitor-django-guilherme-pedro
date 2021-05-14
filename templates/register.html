@@ -12,9 +12,40 @@
 </head>
 <body >
   <div  class="container mt-4">
-    <h1>Dados sobre a COVID por país - Cadastrar País</h1>
-    <a class="btn btn-dark" href="/register/">Cadastrar país</a>
+    <h1>Cadastrar País</h1>
+    <a class="btn btn-dark" href="/list/">Lista</a>
     <a class="btn btn-dark" href="/logout/">Sair</a>
+    {% block content %}
+    <div class="container mt-4">
+        <form enctype="multipart/form-data" action="submit", method="POST">{% csrf_token %}
+            <div class="container">
+                <input type="number" class="form-control" name="caso_id" value="{{ dados.id }}" hidden>
+                <div class="form-group">
+                    <label for="pais">País</label>
+                    <input type="text" class="form-control" name="pais" value="{{ dados.pais }}">
+                </div>
+                <div class="form-group">
+                    <label for="recuperados">Recuperados</label>
+                    <input type="number" class="form-control" name="recuperados" value="{{ dados.recuperados }}">
+                </div>   
+                <div class="form-group">
+                    <label for="mortes">Mortes</label>
+                    <input type="number" class="form-control" name="mortes" value="{{ dados.mortes }}">
+                </div>    
+                <button type="submit" class="btn btn-dark">
+                    {% if caso %}
+                        Alterar
+                    {% else %}
+                        Cadastrar
+                    {% endif %}
+                </button>
+            </div>
+          </form>
+
+    </div>
+    
+    
+    {% endblock %}
   </div>
 </body>
 </html>

@@ -10,5 +10,8 @@ urlpatterns = [
     path('', RedirectView.as_view(url='list/')),
     path('login/authenticate', views.authenticate_login),
     path('logout/', views.logout_user),
-    path('register/', views.register)
+    path('register/', views.register),
+    path('register/submit', views.set_dados),
+    path('delete/', views.delete_dados),
+    path('delete/<slug:id>', views.delete)
 ]
