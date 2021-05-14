@@ -11,7 +11,8 @@ from .models import Dados
 def login_user(request):
     return render(request, 'login.html')
 
-
+def edit(request):
+    return render(request, 'edit.html')
 
 def list_data(request):
     dados = {"casos": Dados.objects.all()}
@@ -67,3 +68,17 @@ def set_dados(request):
         dados = Dados.objects.create(pais=pais, mortes=mortes, recuperados=recuperados, casos_confirmados=casos_confirmados,)
     return redirect('/list/')
 
+@login_required(login_url='/login/')
+def edit_dados(request):
+    print('Cheguei aqui')
+    pais = request.POST.get('pais')
+    mortes = request.POST.get('mortes')
+    recuperados = request.POST.get('recuperados')
+    casos_confirmados = int(mortes) + int(recuperados)
+    dados = Dados.objects.get(pais=pais)
+    if pais == dados.pais:
+            dados.mortes = mortes
+            dados.recuperados = recuperados
+            dados.casos_confirmados = casos_confirmados 
+            dados.save()
+    return redirect('/list/')

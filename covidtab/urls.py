@@ -13,5 +13,7 @@ urlpatterns = [
     path('register/', views.register),
     path('register/submit', views.set_dados),
     path('delete/', views.delete_dados),
-    path('delete/<slug:id>', views.delete)
+    path('delete/<slug:id>/', views.delete),
+    path('edit/', views.edit),
+    path('edit/submit', views.edit_dados)
 ]

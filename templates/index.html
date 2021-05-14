@@ -15,7 +15,6 @@
   <div  class="container mt-4">
     <h1>Dados sobre a COVID por país</h1>
     <a class="btn btn-dark" href="/register/">Cadastrar país</a>
-    <a class="btn btn-dark" href="/register/">Editar país</a>
     <a class="btn btn-dark" href="/logout/">Sair</a>
   
     <div class="container mt-4">
@@ -36,7 +35,7 @@
                   <td>{{caso.mortes}}</td>
                   <td>{{caso.recuperados}}</td>
                   <td><a class="btn btn-danger" href="/delete/{{caso.id}}/">Deletar</a></td>
-                  <td><a class="btn btn-info" href="/register/{{caso.id}}">Alterar</a></td>
+                  <td><a class="btn btn-info" href="/edit/">Alterar</a></td>
                 </tr>
               {% endfor %}
               </table>

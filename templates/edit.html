@@ -12,14 +12,13 @@
 </head>
 <body >
   <div  class="container mt-4">
-    <h1>Cadastrar País</h1>
+    <h1>Alterar País</h1>
     <a class="btn btn-dark" href="/list/">Lista</a>
     <a class="btn btn-dark" href="/logout/">Sair</a>
     {% block content %}
     <div class="container mt-4">
         <form enctype="multipart/form-data" action="submit", method="POST">{% csrf_token %}
             <div class="container">
-                
                 <div class="form-group">
                     <label for="pais">País</label>
                     <input type="text" class="form-control" name="pais" >
@@ -32,7 +31,9 @@
                     <label for="mortes">Mortes</label>
                     <input type="number" class="form-control" name="mortes" >
                 </div>    
-                <button type="submit" class="btn btn-dark">Cadastrar</button>
+                <button type="submit" class="btn btn-dark">
+                    Alterar
+                </button>
             </div>
           </form>
 
